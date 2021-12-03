@@ -119,6 +119,14 @@ public class Customer {
         return user;
     }
 
+    public List<Challenge> getChallenges() {
+        return challenges;
+    }
+
+    public void setChallenges(List<Challenge> challenges) {
+        this.challenges = challenges;
+    }
+
     public void setUser(User user) {
         this.user = user;
     }
