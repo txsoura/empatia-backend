@@ -1,3 +1,3 @@
-# empatia-backend
+# Empatia Backend
 
 Empatia API
