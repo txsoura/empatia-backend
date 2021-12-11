@@ -26,7 +26,7 @@ public class UserSeeder {
     }
 
     public void run() {
-        if (repository.count() <= 3) {
+        if (repository.count() < 3) {
             repository.saveAll(
                     seeds()
             );

@@ -15,13 +15,6 @@ WORKDIR /app
 
 COPY --from=build /workspace/target/*.jar /app/application.jar
 
-ENV DB_URL=postgres
-ENV DB_PORT=5432
-ENV DB_DATABASE=empatia
-ENV DB_USERNAME=ept_ser
-ENV DB_PASSWORD=secret
-ENV JWT_SECRET=SecretKeyToGenJWTs
-
 EXPOSE 8080
 
 CMD ["java", "-Xms128m", "-Xmx256m", "-jar", "application.jar"]
