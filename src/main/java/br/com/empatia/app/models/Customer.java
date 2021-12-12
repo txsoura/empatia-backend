@@ -32,10 +32,10 @@ public class Customer {
     private String freeTimeHabits;
     private String preferredMedias;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<Challenge> challenges = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private User user;
 
     @Column
