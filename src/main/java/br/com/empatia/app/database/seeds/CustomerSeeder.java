@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -20,19 +21,20 @@ public class CustomerSeeder {
     public static Faker faker = new Faker();
     UserRepository userRepository;
     CustomerRepository repository;
+    UserSeeder userSeeder;
 
-    public static Customer create(User user) {
+    public Customer create(User user) {
         int sex = new Random().nextInt(CustomerSex.values().length);
 
-        return new Customer(faker.number().numberBetween(1, 10), LocalDate.now(), CustomerSex.values()[sex], faker.lorem().sentences(5).toString(), faker.lorem().sentences(5).toString(), user);
+        return repository.save(new Customer(faker.number().numberBetween(1, 10), LocalDate.now(), CustomerSex.values()[sex], faker.lorem().sentences(2).toString(), LocalTime.now(), faker.lorem().sentences(3).toString(), user));
     }
 
-    public static Customer create() {
+    public Customer create() {
         int sex = new Random().nextInt(CustomerSex.values().length);
 
-        User user = UserSeeder.create();
+        User user = userSeeder.create();
 
-        return new Customer(faker.number().numberBetween(1, 10), LocalDate.now(), CustomerSex.values()[sex], faker.lorem().sentences(5).toString(), faker.lorem().sentences(5).toString(), user);
+        return repository.save(new Customer(faker.number().numberBetween(1, 10), LocalDate.now(), CustomerSex.values()[sex], faker.lorem().sentences(2).toString(), LocalTime.now(), faker.lorem().sentences(3).toString(), user));
     }
 
     public void run(int x) {

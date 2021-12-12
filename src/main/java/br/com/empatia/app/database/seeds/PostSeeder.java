@@ -17,13 +17,14 @@ import java.util.Random;
 public class PostSeeder {
     public static Faker faker = new Faker();
     PostRepository repository;
+    UserSeeder userSeeder;
 
-    public static Post create() {
+    public Post create() {
         int type = new Random().nextInt(PostType.values().length);
 
-        User user = UserSeeder.create();
+        User user = userSeeder.create();
 
-        return new Post(PostType.values()[type], faker.lorem().sentences(2).toString(), user);
+        return repository.save(new Post(PostType.values()[type], faker.lorem().sentences(2).toString(), user));
     }
 
     public void run(int x) {
