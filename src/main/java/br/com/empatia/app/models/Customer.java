@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -31,6 +32,7 @@ public class Customer {
     private CustomerSex sex;
     private String freeTimeHabits;
     private String preferredMedias;
+    private LocalTime freeTime;
 
     @OneToMany
     private List<Challenge> challenges = new ArrayList<>();
@@ -46,19 +48,21 @@ public class Customer {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    public Customer(int points, LocalDate birthdate, CustomerSex sex, String freeTimeHabits, String preferredMedias, User user) {
+    public Customer(int points, LocalDate birthdate, CustomerSex sex, String freeTimeHabits, LocalTime freeTime, String preferredMedias, User user) {
         this.points = points;
         this.birthdate = birthdate;
         this.sex = sex;
         this.freeTimeHabits = freeTimeHabits;
+        this.freeTime = freeTime;
         this.preferredMedias = preferredMedias;
         this.user = user;
     }
 
-    public Customer(LocalDate birthdate, CustomerSex sex, String freeTimeHabits, String preferredMedias) {
+    public Customer(LocalDate birthdate, CustomerSex sex, String freeTimeHabits, LocalTime freeTime, String preferredMedias) {
         this.birthdate = birthdate;
         this.sex = sex;
         this.freeTimeHabits = freeTimeHabits;
+        this.freeTime = freeTime;
         this.preferredMedias = preferredMedias;
     }
 
@@ -105,6 +109,14 @@ public class Customer {
 
     public void setFreeTimeHabits(String freeTimeHabits) {
         this.freeTimeHabits = freeTimeHabits;
+    }
+
+    public LocalTime getFreeTime() {
+        return freeTime;
+    }
+
+    public void setFreeTime(LocalTime freeTime) {
+        this.freeTime = freeTime;
     }
 
     public String getPreferredMedias() {
