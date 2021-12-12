@@ -39,7 +39,7 @@ public class Challenge {
     @Column(nullable = false)
     private int points;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<User> views = new ArrayList<>();
 
     @Column
