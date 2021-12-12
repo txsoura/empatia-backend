@@ -18,10 +18,10 @@ public class ChallengeSeeder {
     public static Faker faker = new Faker();
     ChallengeRepository repository;
 
-    public static Challenge create() {
+    public Challenge create() {
         int type = new Random().nextInt(ChallengeType.values().length);
 
-        return new Challenge(ChallengeType.values()[type], faker.lorem().sentences(1).toString(), LocalDate.now(), faker.lorem().sentences(2).toString(), faker.number().numberBetween(1, 10));
+        return repository.save(new Challenge(ChallengeType.values()[type], faker.lorem().sentences(1).toString(), LocalDate.now(), faker.lorem().sentences(2).toString(), faker.number().numberBetween(1, 10)));
     }
 
     public void run(int x) {
