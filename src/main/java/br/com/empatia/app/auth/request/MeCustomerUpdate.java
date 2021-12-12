@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 public class MeCustomerUpdate {
@@ -14,9 +15,9 @@ public class MeCustomerUpdate {
     @NotBlank
     private String sex;
 
-    @NotBlank
     private String freeTimeHabits;
 
-    @NotBlank
+    private LocalTime freeTime;
+
     private String preferredMedias;
 }

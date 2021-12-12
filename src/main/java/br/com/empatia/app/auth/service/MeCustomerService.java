@@ -37,6 +37,7 @@ public class MeCustomerService {
         customer.setBirthdate(data.getBirthdate());
         customer.setSex(data.getSex());
         customer.setFreeTimeHabits(data.getFreeTimeHabits());
+        customer.setFreeTime(data.getFreeTime());
         customer.setPreferredMedias(data.getPreferredMedias());
 
         return customerRepository.save(customer);

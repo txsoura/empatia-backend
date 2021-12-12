@@ -47,6 +47,7 @@ public class MeCustomerController {
                 data.getBirthdate(),
                 CustomerSex.cast(data.getSex()),
                 data.getFreeTimeHabits(),
+                data.getFreeTime(),
                 data.getPreferredMedias()
         );
 

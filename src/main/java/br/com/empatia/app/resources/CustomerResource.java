@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -21,6 +22,7 @@ public class CustomerResource {
     private CustomerSex sex;
     private UUID userId;
     private String freeTimeHabits;
+    private LocalTime freeTime;
     private int points;
     private String preferredMedias;
     private int challenges;
@@ -33,6 +35,7 @@ public class CustomerResource {
         this.sex = customer.getSex();
         this.userId = customer.getUser().getId();
         this.freeTimeHabits = customer.getFreeTimeHabits();
+        this.freeTime = customer.getFreeTime();
         this.points = customer.getPoints();
         this.preferredMedias = customer.getPreferredMedias();
         this.challenges = customer.getChallenges().size();
