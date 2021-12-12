@@ -19,10 +19,10 @@ public class UserSeeder {
     UserRepository repository;
     BCryptPasswordEncoder bCrypt;
 
-    public static User create() {
+    public User create() {
         int role = new Random().nextInt(UserRole.values().length);
 
-        return new User(faker.internet().emailAddress(), faker.random().hex(10), faker.name().name(), UserRole.values()[role]);
+        return repository.save(new User(faker.internet().emailAddress(), faker.random().hex(10), faker.name().name(), UserRole.values()[role]));
     }
 
     public void run() {
