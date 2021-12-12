@@ -29,16 +29,16 @@ public class Post {
     @Column(nullable = false)
     private String content;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private User user;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private Post post;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private Challenge challenge;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<User> views = new ArrayList<>();
 
     @Column
