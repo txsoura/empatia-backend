@@ -15,8 +15,9 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-#         port: 22
-#         script: |
+        port: 22
+        script: |
+            ls
 #           cd empatia-backend
 #           make git
 #           make up
