@@ -17,8 +17,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-            ls
-#           cd empatia-backend
-#           make git
-#           make up
+          cd empatia-backend
+          make git
+          make up
           
